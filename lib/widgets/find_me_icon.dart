@@ -29,11 +29,7 @@ class _FindMeIconState extends State<FindMeIcon> {
           onHover = value;
         });
       },
-      overlayColor: WidgetStateProperty.resolveWith<Color?>(
-        (Set<WidgetState> states) {
-          return Colors.transparent;
-        },
-      ),
+      overlayColor: Constants.overlayColor,
       child: Icon(
         widget.icon,
         color: onHover ? Constants.iconColor : Constants.textColor,

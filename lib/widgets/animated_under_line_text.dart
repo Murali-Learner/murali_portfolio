@@ -1,3 +1,4 @@
+import 'package:SaiMurali/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:SaiMurali/utils/context_extension.dart';
 
@@ -32,11 +33,7 @@ class AnimatedUnderlineTextState extends State<AnimatedUnderlineText> {
           _isUnderlined = value;
         });
       },
-      overlayColor: WidgetStateProperty.resolveWith<Color?>(
-        (Set<WidgetState> states) {
-          return Colors.transparent;
-        },
-      ),
+      overlayColor: Constants.overlayColor,
       onTap: widget.onTap,
       child: Column(
         mainAxisSize: MainAxisSize.min,

@@ -1,7 +1,9 @@
+import 'package:SaiMurali/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:SaiMurali/utils/constants.dart';
 import 'package:SaiMurali/utils/context_extension.dart';
 import 'package:SaiMurali/widgets/routes_widget.dart';
+import 'package:provider/provider.dart';
 
 class AppBarWidget extends StatelessWidget {
   const AppBarWidget({
@@ -10,15 +12,27 @@ class AppBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = context.read<HomeController>();
+
     return SliverPadding(
       padding: const EdgeInsets.symmetric(vertical: 30),
       sliver: SliverAppBar(
         pinned: true,
         surfaceTintColor: Colors.transparent,
-        title: Text(
-          "SM",
-          style:
-              Constants.headline(context, fontSize: context.isMobile ? 25 : 35),
+        title: InkWell(
+          overlayColor: Constants.overlayColor,
+          onTap: () {
+            controller.scrollController.animateTo(
+              controller.scrollController.position.minScrollExtent,
+              duration: Duration(milliseconds: context.isDesktop ? 400 : 800),
+              curve: Curves.ease,
+            );
+          },
+          child: Text(
+            "SM",
+            style: Constants.headline(context,
+                fontSize: context.isMobile ? 25 : 35),
+          ),
         ),
         actions: [
           if (context.isDesktop) const RoutesWidget(),

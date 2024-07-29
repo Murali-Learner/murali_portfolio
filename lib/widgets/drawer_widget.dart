@@ -1,3 +1,4 @@
+import 'package:SaiMurali/widgets/social_media.dart';
 import 'package:flutter/material.dart';
 import 'package:SaiMurali/controllers/home_controller.dart';
 import 'package:SaiMurali/utils/constants.dart';
@@ -38,6 +39,7 @@ class _DrawerWidgetState extends State<DrawerWidget>
       width: context.isTablet ? context.width(40) : context.width(50),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,
         children: [
           Padding(
@@ -68,7 +70,6 @@ class _DrawerWidgetState extends State<DrawerWidget>
               AnimatedUnderlineText(
                   text: "Home",
                   onTap: () {
-                    controller.goto(0);
                     Scaffold.of(context).closeEndDrawer();
                   }),
               20.vSpace,
@@ -117,17 +118,40 @@ class _DrawerWidgetState extends State<DrawerWidget>
                         Scaffold.of(context).closeEndDrawer();
                       }),
                 ),
-              )
-              // AnimatedUnderlineText(
-              //   text: "Resume",
-              //   onTap: () {
-
-              //     Scaffold.of(context).closeEndDrawer();
-              //   },
-              // ),
-              // 20.vSpace,
+              ),
             ],
           ),
+          const Spacer(),
+          IntrinsicWidth(
+            child: Row(
+              children: [
+                Expanded(
+                  child: Divider(
+                    color: Colors.green,
+                    thickness: 2,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Text(
+                    "Contact",
+                    style: context.textTheme.bodyLarge!.copyWith(
+                      color: Colors.green,
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Divider(
+                    color: Colors.green,
+                    thickness: 2,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          10.vSpace,
+          SocialMediaWidget(),
           const Spacer(),
         ],
       ),

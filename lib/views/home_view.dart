@@ -28,6 +28,7 @@ class HomeView extends StatelessWidget {
                     : context.width(60),
             child: Center(
               child: CustomScrollView(
+                controller: controller.scrollController,
                 slivers: [
                   SliverToBoxAdapter(
                     child: context.height(0.5).vSpace,

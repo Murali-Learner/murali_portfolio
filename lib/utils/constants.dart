@@ -13,6 +13,7 @@ class Constants {
     'logo': "assets/images/logo.png",
     'name': 'Sai Murali M',
     'contactButton': 'Contact Me',
+    'contactEmail': 'muralikrishna2354@gmail.com',
     "git": "https://github.com/Murali-Learner/",
     "linkedIn": "https://www.linkedin.com/in/sai-murali-m/",
     "resumeLink":
@@ -57,19 +58,13 @@ class Constants {
         'title': 'TechI',
         'summary':
             'Developed TechI, a Flutter-based mobile application providing the latest tech news using Hacker News APIs, implementing efficient state management with Bloc pattern and pagination for seamless user experience',
-        "link": "https://github.com/Murali-Learner/tech_i"
+        "link": "https://github.com/Murali-Learner/TechI/blob/main/README.md"
       },
       {
         'title': 'Map Route',
         'summary':
             'Implemented dynamic location tracking and custom marker creation using Flutter and GetX, enhancing user interaction and map visualization.',
-        "link": "https://github.com/Murali-Learner/Flutter-Map-Integration"
-      },
-      {
-        'title': 'TODO App',
-        'summary':
-            'Implemented robust task management with Hive for local storage and Riverpod for state management, ensuring seamless data syncing and efficient state handling',
-        "link": "https://github.com/Murali-Learner/todo_hive_riverpod"
+        "link": "https://github.com/Murali-Learner/MapRoute/blob/main/README.md"
       },
     ],
     'education': {
@@ -100,13 +95,19 @@ class Constants {
 
 //colors
   static Color backgroundColor = const Color(0XFF1d1f21);
+  static WidgetStateProperty<Color?> overlayColor =
+      WidgetStateProperty.resolveWith<Color?>(
+    (Set<WidgetState> states) {
+      return Colors.transparent;
+    },
+  );
   static Color textColor = const Color(0XFFeeeeee);
   static Color iconColor = const Color(0XFF0ca5e5);
   static Color secondaryColor = const Color(0xFF4CAF50);
   static Color primaryColor = Colors.green;
 
   static Map<String, Widget> widgets = {
-    "Home": const HomeWidget(),
+    "Home": const HomeRoute(),
     "Skills": const TechStackWidget(),
     "Experience": const ExperienceList(),
     "Projects": const ProjectsList(),

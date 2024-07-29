@@ -1,12 +1,12 @@
+import 'package:SaiMurali/widgets/social_media.dart';
 import 'package:flutter/material.dart';
 import 'package:SaiMurali/utils/constants.dart';
 import 'package:SaiMurali/utils/context_extension.dart';
-
 import 'package:SaiMurali/utils/spacer_extension.dart';
 import 'package:SaiMurali/widgets/about_me.dart';
 
-class HomeWidget extends StatelessWidget {
-  const HomeWidget({
+class HomeRoute extends StatelessWidget {
+  const HomeRoute({
     super.key,
   });
 
@@ -17,19 +17,25 @@ class HomeWidget extends StatelessWidget {
       children: [
         context.width(2).vSpace,
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              "Hey ",
-              style: context.textTheme.displayLarge!.copyWith(
-                fontWeight: FontWeight.w900,
-                fontSize: context.isMobile ? 25 : null,
-              ),
+            Row(
+              children: [
+                Text(
+                  "Hey ",
+                  style: context.textTheme.displayLarge!.copyWith(
+                    fontWeight: FontWeight.w900,
+                    fontSize: context.isMobile ? 25 : null,
+                  ),
+                ),
+                Image.asset(
+                  Constants.CONFIG["wave"],
+                  height: context.isMobile ? 30 : 38,
+                ),
+                if (!context.isMobile) const MyName(),
+              ],
             ),
-            Image.asset(
-              Constants.CONFIG["wave"],
-              height: context.isMobile ? 30 : 38,
-            ),
-            if (!context.isMobile) const MyName(),
+            if (context.isDesktop) const SocialMediaWidget(),
           ],
         ),
         13.vSpace,

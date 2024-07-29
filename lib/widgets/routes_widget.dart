@@ -1,3 +1,4 @@
+import 'package:SaiMurali/utils/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:SaiMurali/controllers/home_controller.dart';
@@ -18,7 +19,13 @@ class RoutesWidget extends StatelessWidget {
           AnimatedUnderlineText(
               text: "Home",
               onTap: () {
-                controller.goto(0);
+                controller.scrollController.animateTo(
+                  controller.scrollController.position.minScrollExtent,
+                  duration:
+                      Duration(milliseconds: context.isDesktop ? 400 : 800),
+                  curve: Curves.ease,
+                );
+                // controller.goto(0);
               }),
           const GlobalDivider(),
           AnimatedUnderlineText(
@@ -41,6 +48,13 @@ class RoutesWidget extends StatelessWidget {
               controller.goto(3);
             },
           ),
+          // const GlobalDivider(),
+          // AnimatedUnderlineText(
+          //   text: "Contact",
+          //   onTap: () {
+          //     controller.goto(4);
+          //   },
+          // ),
           const GlobalDivider(),
         ],
       ),

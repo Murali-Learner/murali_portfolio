@@ -59,7 +59,7 @@ class ProjectsList extends StatelessWidget {
                 const SizedBox(height: 5),
                 Text(
                   project['summary'] ?? '',
-                  style: TextStyle(fontSize: context.isMobile ? 12 : 14),
+                  style: const TextStyle(fontSize: 14),
                 ),
               ],
             ),

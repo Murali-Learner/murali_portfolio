@@ -35,7 +35,7 @@ class ExperienceList extends StatelessWidget {
                 const SizedBox(height: 5),
                 Text(
                   experience['description'],
-                  style: TextStyle(fontSize: context.isMobile ? 12 : 14),
+                  style: const TextStyle(fontSize: 14),
                 ),
               ],
             ),

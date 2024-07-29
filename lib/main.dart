@@ -5,6 +5,7 @@ import 'package:SaiMurali/views/home_view.dart';
 import 'package:provider/provider.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 

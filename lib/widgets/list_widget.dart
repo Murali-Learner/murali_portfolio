@@ -13,27 +13,29 @@ class ListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      // key: ValueKey(title,
-      padding: const EdgeInsets.only(bottom: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          if (title != "Home")
-            Text(
-              title,
-              textAlign: TextAlign.start,
-              style: context.textTheme.bodyLarge!.copyWith(
-                // decoration: TextDecoration.underline,
-                fontSize: context.isMobile ? 25 : 35,
-                // decorationColor: Colors.green,
-                fontWeight: FontWeight.w800,
-              ),
+    return title == "Contact" && (context.isMobile || context.isTablet)
+        ? const SizedBox.shrink()
+        : Padding(
+            // key: ValueKey(title,
+            padding: const EdgeInsets.only(bottom: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (title != "Home")
+                  Text(
+                    title,
+                    textAlign: TextAlign.start,
+                    style: context.textTheme.bodyLarge!.copyWith(
+                      // decoration: TextDecoration.underline,
+                      fontSize: context.isMobile ? 25 : 35,
+                      // decorationColor: Colors.green,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                if (title != "Home") 15.vSpace,
+                child,
+              ],
             ),
-          if (title != "Home") 15.vSpace,
-          child,
-        ],
-      ),
-    );
+          );
   }
 }
